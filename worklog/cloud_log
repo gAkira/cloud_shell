@@ -1,0 +1,65 @@
+# 06 October 2023
+- Download all the given files for the project
+- Tried to install all the stack to work on the project
+- Read Makefile and tried to understand it
+- Not sure why 'make' is not working
+
+# 09 October 2023
+- Figured out how to install the toolchain properly (there is a small link on
+  the bottom of the arm webpage that leads to a documentation)
+- 'make' is still not working... It says that qemu is not installed, even
+  though I've installed it and its dependencies
+
+# 10 October 2023
+- I have just noticed that I was trying to install the qemu from the apt-get
+  package manager, so it was the normal one... not the qemu-system-arm.
+- Read the vector.s, reset.s and main.c
+- Edited the main.c in order to stop the printing of "Zzzzz..." 
+
+# 15 October 2023
+- Read the documentation of the qemu and changed Makefile to make it launch
+  a second serial telnet
+- Found out how to reach qemu and send command to it (ctrl+a c) and started to
+  dig in its functionalities (the meaning of C-a c is not so obvious...)
+
+# 20 October 2023
+- Implemented the function kputchar in the file kprintf.c
+- Added kprintf.o to the list of objects in Makefile, in order to make it
+  compile the kprintf.c file
+- Changed a little bit main.c and showed that the kprintf is working (writing
+  to the telnet terminal)
+
+# 24 October 2023
+- Found about ANSI escape sequences (https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)
+- Tested some functionalities (like "\e[2J" to erase the whole screen)
+- Started to implement some basic functionalities of libc in cc_libc (such as memcpy, memmove, etc)
+
+# 27 October 2023
+- Started to write some functions to encapsulate ANSI functionalites in utils.c/utils.h
+- Tried to understand more about the libraries provided (using flags -lc to try to link to libc in compilation)
+
+# 31 October 2023
+- Implemented some other functions to utils.c
+- Implemented a printf (cc_printf) based on the kprintf implementation
+- Defined the behavior of the default switch in main
+
+# 01 November 2023
+- Added more functions to utils.c and to cc_libc.c
+- Found out that the backspace key in keyboard actually throws the DEL code
+- Implemented the functionality of the backspace (DEL code)
+
+# 09 November 2023
+- Created the 'skeleton' of the \r\n functionality (jump line, save in history and execute command)
+- Function execute already handles the 'reset' command
+- Noticed that the cursor origin position is actually at (1, 1) and not (0, 0)... what was generating some bugs
+
+# 13 November 2023
+- Created a Finite State Machine (FSM) to handle special keys such as the arrow keys and delete... kinda tough...
+
+# 16 November 2023
+- Implemented the history functionality (up and down arrows)
+- Needed to update the way I handled the \r\n
+
+# 17 November 2023
+- Implemented the 'echo' command
+- Tested everything to make sure the project is working fine
