@@ -170,6 +170,7 @@ void _start() {
           cc_printf("%s", &curr_line[line_index]);
           cc_memmove(history[0], curr_line, cc_strlen(curr_line));
           history_index = 0;
+          set_cursor(UART0, cursor.row, cursor.col);
           break;
 
         default: // Handle undefined cases
