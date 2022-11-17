@@ -1,3 +1,13 @@
+# How to run the code:
+- You must have the arm-toolchain installed
+- You must have the correct qemu installed
+- Go to the folder arm.boot and type:
+-- make run
+- Open a second terminal (just to see the debug messages) and type:
+-- telnet localhost 4321
+- Voila!
+- You will have the shell running on the first terminal and the debug messages will appear in the second one
+
 # 06 October 2023
 - Download all the given files for the project
 - Tried to install all the stack to work on the project
